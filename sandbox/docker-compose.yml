@@ -1,0 +1,24 @@
+version: "3"
+
+services:
+  redis:
+    container_name: avatar.sandbox.redis
+    image: redis:3.2
+    volumes:
+      - ${HOME}/avatar/redis:/data
+    ports:
+      - "6379:6379"
+
+  mysql:
+    container_name: avatar.sandbox.mysql
+    image: 5824600/mysql:5.7
+    volumes:
+      - ../mysql.initdb.d:/usr/local/mysql/mysql.initdb.d
+      - ./mysql.initdb.d:/usr/local/mysql/mysql.initdb.d.sandbox
+      - ${HOME}/avatar/mysql:/var/lib/mysql
+    environment:
+      - MYSQL_USER=avatar
+    ports:
+      - "3306:3306"
+
+
