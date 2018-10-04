@@ -8,7 +8,7 @@ USE `avatar`;
 CREATE TABLE `order` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `status` int(11) NOT NULL DEFAULT 0 COMMENT '状态. 1: 等待; 2: 处理中; 3: 完成; 4: 关闭',
-  `biz_type` int(11) NOT NULL COMMENT '宽带业务类型 order_biz_type 表',
+  `biz` int(11) NOT NULL COMMENT '宽带业务 biz 表',
   `openid` varchar(128) NOT NULL COMMENT '用户在小程序端的openid',
   `realname` varchar(32) NOT NULL COMMENT '真实姓名',
   `nickname` varchar(32) NOT NULL COMMENT '昵称',
@@ -17,13 +17,13 @@ CREATE TABLE `order` (
   `address` varchar(512) NOT NULL COMMENT '安装地址',
   `lon` float NULL COMMENT '经度',
   `lat` float NULL COMMENT '纬度',
-  `install_time` DATETIME  NOT NULL COMMENT '安装时间',
+  `installtime` DATETIME  NOT NULL COMMENT '安装时间',
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`)
 ) ENGINE InnoDB COMMENT '订单表';
 
-CREATE TABLE `order_biz_type` (
+CREATE TABLE `biz` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `name` varchar(128) NOT NULL COMMENT '名称',
   `operator` int(11) NOT NULL COMMENT '运营商ID',

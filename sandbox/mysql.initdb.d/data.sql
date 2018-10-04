@@ -5,7 +5,7 @@ INSERT INTO `operator`(`id`, `name`) VALUES
 (2, '移动'),
 (3, '联通');
 
-INSERT INTO `order_biz_type` (`id`, `name`, `operator`) VALUES
+INSERT INTO `biz` (`id`, `name`, `operator`) VALUES
 (1, '100M', 1),
 (2, '200M', 1),
 (3, '商业光纤专线', 1),
@@ -14,7 +14,7 @@ INSERT INTO `order_biz_type` (`id`, `name`, `operator`) VALUES
 (6, '100M', 3),
 (7, '200M', 3);
 
-INSERT INTO `order` (`id`, `status`, `biz_type`, `openid`, `realname`, `nickname`, `headimgurl`, `mobile`, `address`, `lon`, `lat`, `install_time`, `created_at`) VALUES
+INSERT INTO `order` (`id`, `status`, `biz`, `openid`, `realname`, `nickname`, `headimgurl`, `mobile`, `address`, `lon`, `lat`, `installtime`, `created_at`) VALUES
 (1, 1, 1, '1', '曹操', '曹操', 'http://www.sanguosha.com/uploads/201610/580f2ae08104c.jpg', '18682476844', '福田区 福华路319号 工商银行大厦', 114.074352,22.539834, '2018-09-01 00:00', '2018-09-01'),
 (2, 2, 2, '2', '郭嘉', '郭嘉', 'http://www.sanguosha.com/uploads/201610/580f2fcf4ba5f.jpg', '18682476844', '宝安区 万安路271号 农业银行', 113.831181,22.732627, '2018-08-10 00:00', '2018-08-10'),
 (3, 3, 3, '3', '张辽', '张辽', 'http://www.sanguosha.com/uploads/201610/580f2dc2d482f.jpg', '18682476844', '罗湖区 深南东路2008号 中国银行', 114.135803,22.551538, '2018-06-10 00:00', '2018-06-10'),
