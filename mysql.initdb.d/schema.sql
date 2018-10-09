@@ -35,13 +35,14 @@ CREATE TABLE `biz` (
 
 CREATE TABLE `biz_property` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `order` int(11) NOT NULL COMMENT '序号',
   `biz` int(11) NOT NULL COMMENT '套餐ID',
   `name` varchar(32) NOT NULL COMMENT '名称',
   `value` varchar(32) NOT NULL COMMENT '值',
+  `seq` int(11) NOT NULL COMMENT '序号',
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uk_bizproperty_biz_name` (`biz`, `name`)
 ) ENGINE InnoDB COMMENT '套餐属性表';
 
 
