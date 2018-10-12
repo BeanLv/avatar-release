@@ -7,7 +7,7 @@ USE `avatar`;
 
 CREATE TABLE `order` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `status` int(11) NOT NULL DEFAULT 0 COMMENT '状态. 1: 等待; 2: 处理中; 3: 完成; 4: 关闭',
+  `status` int(11) NOT NULL DEFAULT 1 COMMENT '状态. 1: 等待; 2: 处理中; 3: 完成; 4: 关闭',
   `biz` int(11) NOT NULL COMMENT '宽带业务 biz 表',
   `realname` varchar(32) NOT NULL COMMENT '真实姓名',
   `nickname` varchar(32) NOT NULL COMMENT '昵称',
