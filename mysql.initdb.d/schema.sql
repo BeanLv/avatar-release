@@ -85,3 +85,14 @@ CREATE TABLE `order_statistic` (
     PRIMARY KEY (`id`),
     UNIQUE INDEX `uidx_order_date` (`date`)
 ) ENGINE InnoDB COMMENT '订单统计';
+
+CREATE TABLE `qrcode` (
+    `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
+    `name` varchar(32) NOT NULL COMMENT '名称',
+    `remark` varchar(256) NULL COMMENT '备注',
+    `owner` varchar(256) NOT NULL COMMENT '负责人的UserID',
+    `imagename` varchar(256) NOT NULL COMMENT '图片存储名称',
+    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
+    `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
+    PRIMARY KEY (`id`)
+) ENGINE InnoDB COMMENT '二维码';
