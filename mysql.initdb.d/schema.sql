@@ -17,6 +17,8 @@ CREATE TABLE `order` (
   `lon` float NULL COMMENT '经度',
   `lat` float NULL COMMENT '纬度',
   `installtime` DATETIME  NOT NULL COMMENT '安装时间',
+  `source` int(11) NULL COMMENT '二维码来源',
+  `owner` varchar(256) NULL COMMENT '负责人的UserID',
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`)
@@ -66,25 +68,16 @@ CREATE TABLE `order_record` (
    PRIMARY KEY (`id`)
 ) ENGINE InnoDB COMMENT '订单记录表';
 
-CREATE TABLE `pageview_statistic` (
+CREATE TABLE `pageview` (
     `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
     `date` date NOT NULL COMMENT '日期',
-    `num` int(11) NOT NULL COMMENT '当天访问数量',
+    `num` int(11) NOT NULL COMMENT '数量',
+    `source` int(11) NULL COMMENT '二维码来源',
     `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
     PRIMARY KEY (`id`),
-    UNIQUE INDEX `uidx_pageview_date` (`date`)
-) ENGINE InnoDB COMMENT '页面访问统计';
-
-CREATE TABLE `order_statistic` (
-    `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-    `date` date NOT NULL COMMENT '日期',
-    `num` int(11) NOT NULL COMMENT '当天访问数量',
-    `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-    `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-    PRIMARY KEY (`id`),
-    UNIQUE INDEX `uidx_order_date` (`date`)
-) ENGINE InnoDB COMMENT '订单统计';
+    UNIQUE KEY `uidx_pageveiw_statistic_date_source` (`date`, `source`)
+) ENGINE InnoDB COMMENT '页面访问记录';
 
 CREATE TABLE `qrcode` (
     `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
