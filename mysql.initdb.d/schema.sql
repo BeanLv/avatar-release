@@ -18,7 +18,7 @@ CREATE TABLE `order` (
   `lat` float NULL COMMENT '纬度',
   `installtime` DATETIME  NOT NULL COMMENT '安装时间',
   `source` int(11) NULL COMMENT '二维码来源',
-  `owner` varchar(256) NULL COMMENT '负责人的UserID',
+  `handler` varchar(256) NULL COMMENT '处理人UserID',
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`)
