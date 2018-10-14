@@ -40,7 +40,7 @@ CREATE TABLE `biz_property` (
   `biz` int(11) NOT NULL COMMENT '套餐ID',
   `name` varchar(32) NOT NULL COMMENT '名称',
   `value` varchar(32) NOT NULL COMMENT '值',
-  `seq` int(11) NOT NULL COMMENT '序号',
+  `tag` varchar(32) NULL COMMENT '标签',
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
