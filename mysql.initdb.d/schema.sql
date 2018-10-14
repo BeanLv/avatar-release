@@ -21,7 +21,11 @@ CREATE TABLE `order` (
   `handler` varchar(256) NULL COMMENT '处理人UserID',
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX `idx_order_status` (`status`),
+  INDEX `idx_order_source` (`source`),
+  INDEX `idx_order_handler` (`handler`),
+  INDEX `idx_order_created_at` (`created_at`)
 ) ENGINE InnoDB COMMENT '订单表';
 
 CREATE TABLE `biz` (
@@ -32,7 +36,8 @@ CREATE TABLE `biz` (
   `disabled` bit NOT NULL DEFAULT 0 COMMENT '是否禁用',
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`id`),
+  INDEX `idx_biz_operator` (`operator`)
 ) ENGINE InnoDB COMMENT '订单业务类型表';
 
 CREATE TABLE `biz_property` (
@@ -44,6 +49,7 @@ CREATE TABLE `biz_property` (
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
+  INDEX `idx_biz_property_biz` (`biz`),
   UNIQUE KEY `uk_bizproperty_biz_name` (`biz`, `name`)
 ) ENGINE InnoDB COMMENT '套餐属性表';
 
@@ -65,7 +71,8 @@ CREATE TABLE `order_record` (
   `remark` varchar(128) NULL COMMENT '备注信息',
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-   PRIMARY KEY (`id`)
+   PRIMARY KEY (`id`),
+   INDEX `idx_order_record_orderid` (`orderid`)
 ) ENGINE InnoDB COMMENT '订单记录表';
 
 CREATE TABLE `pageview` (
@@ -76,7 +83,9 @@ CREATE TABLE `pageview` (
     `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
     `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
     PRIMARY KEY (`id`),
-    UNIQUE KEY `uidx_pageveiw_statistic_date_source` (`date`, `source`)
+    UNIQUE KEY `uidx_pageveiw_statistic_date_source` (`date`, `source`),
+    INDEX `idx_pageview_date` (`date`),
+    INDEX `idx_pageview_source` (`source`)
 ) ENGINE InnoDB COMMENT '页面访问记录';
 
 CREATE TABLE `qrcode` (
