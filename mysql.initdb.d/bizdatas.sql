@@ -45,7 +45,7 @@ INSERT INTO `operator`(`id`, `name`) VALUES
 
 INSERT INTO `biz` (`id`, `name`, `operator`, `remark`) VALUES
 (21, '100M', 2, NULL),
-(22, '200M ', 2, NULL);
+(22, '200M', 2, NULL);
 
 INSERT INTO `biz_property` (`biz`, `name`, `value`, `tag`) VALUES
 (21, 'cost', '98', NULL),
@@ -68,7 +68,7 @@ INSERT INTO `operator`(`id`, `name`) VALUES
 
 INSERT INTO `biz` (`id`, `name`, `operator`, `remark`) VALUES
 (31, '100M', 3, NULL),
-(32, '200M ', 3, NULL);
+(32, '200M', 3, NULL);
 
 INSERT INTO `biz_property` (`biz`, `name`, `value`, `tag`) VALUES
 (31, 'cost', '98', NULL),
