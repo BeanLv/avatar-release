@@ -1,10 +1,5 @@
 USE `avatar`;
 
-INSERT INTO `qrcode` (`id`, `name`, `owner`, `imagename`) VALUES
-(1, '第一个', '95a8723d921e9bd8de3264de2e712f02', '1.jpg'),
-(2, '第二个', 'fancy', '2.jpg'),
-(3, '第三个', 'liQuan', '2.jpg');
-
 INSERT INTO `order` (`id`, `status`, `biz`, `realname`, `nickname`, `headimgurl`, `mobile`, `address`, `lon`, `lat`, `installtime`, `source`, `created_at`) VALUES
 (1, 1, 11, '曹操', '曹操', 'http://www.sanguosha.com/uploads/201610/580f2ae08104c.jpg', '18682476844', '福田区 福华路319号 工商银行大厦', 114.074352,22.539834, '2018-09-01 00:00', 1, '2018-09-01'),
 (2, 2, 12, '郭嘉', '郭嘉', 'http://www.sanguosha.com/uploads/201610/580f2fcf4ba5f.jpg', '18682476844', '宝安区 万安路271号 农业银行', 113.831181,22.732627, '2018-08-10 00:00', 2, '2018-08-10'),
