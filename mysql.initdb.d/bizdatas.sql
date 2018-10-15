@@ -8,7 +8,7 @@ INSERT INTO `biz` (`id`, `name`, `operator`, `remark`) VALUES
 (11, '50M', 1, NULL),
 (12, '100M', 1, '原价199元折后 119元/月'),
 (13, '200M', 1, '原价199元折后 140元/月'),
-(14, '商业光纤专线', 1, '原价999元折后800元');
+(14, '商业光纤专线', 1, '原价999元折后 800元/月');
 
 INSERT INTO `biz_property` (`biz`, `name`, `value`, `tag`) VALUES
 (11, 'cost', '99', NULL),
