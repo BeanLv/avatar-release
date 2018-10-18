@@ -32,6 +32,12 @@ CREATE TABLE `biz` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `name` varchar(128) NOT NULL COMMENT '名称',
   `operator` int(11) NOT NULL COMMENT '运营商ID',
+  `cost` int(11) NOT NULL COMMENT '费用，元/月',
+  `i1` varchar(100) NOT NULL COMMENT '属性1',
+  `i2` varchar(100) NOT NULL COMMENT '属性2',
+  `i3` varchar(100) NOT NULL COMMENT '属性3',
+  `i4` varchar(100) NOT NULL COMMENT '属性4',
+  `i5` varchar(100) NOT NULL COMMENT '属性5',
   `remark` varchar(256) NULL COMMENT '备注',
   `disabled` bit NOT NULL DEFAULT 0 COMMENT '是否禁用',
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
@@ -39,20 +45,6 @@ CREATE TABLE `biz` (
   PRIMARY KEY (`id`),
   INDEX `idx_biz_operator` (`operator`)
 ) ENGINE InnoDB COMMENT '订单业务类型表';
-
-CREATE TABLE `biz_property` (
-  `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
-  `biz` int(11) NOT NULL COMMENT '套餐ID',
-  `name` varchar(32) NOT NULL COMMENT '名称',
-  `value` varchar(32) NOT NULL COMMENT '值',
-  `tag` varchar(32) NULL COMMENT '标签',
-  `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
-  `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
-  PRIMARY KEY (`id`),
-  INDEX `idx_biz_property_biz` (`biz`),
-  UNIQUE KEY `uk_bizproperty_biz_name` (`biz`, `name`)
-) ENGINE InnoDB COMMENT '套餐属性表';
-
 
 CREATE TABLE `operator` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
@@ -67,7 +59,7 @@ CREATE TABLE `order_record` (
   `id` int(11) NOT NULL AUTO_INCREMENT COMMENT 'ID',
   `orderid` int(11) NOT NULL COMMENT '订单ID',
   `operation` int(11) NOT NULL COMMENT '操作 1: 提交订单; 2: 处理; 3: 完成; 4: 取消, 5: 关闭',
-  `opname` varchar(32) NOT NULL COMMENT '人员名称',
+  `opname` varchar(128) NOT NULL COMMENT '人员名称',
   `remark` varchar(128) NULL COMMENT '备注信息',
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
