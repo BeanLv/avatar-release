@@ -14,7 +14,6 @@ services:
     image: 5824600/mysql:5.7
     volumes:
       - ../mysql.initdb.d:/usr/local/mysql/mysql.initdb.d
-      - ./mysql.initdb.d:/usr/local/mysql/mysql.initdb.d.sandbox
       - ${HOME}/avatar/mysql:/var/lib/mysql
     environment:
       - MYSQL_USER=avatar

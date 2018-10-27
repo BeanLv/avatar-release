@@ -19,13 +19,14 @@ CREATE TABLE `order` (
   `installtime` DATETIME  NOT NULL COMMENT '安装时间',
   `source` int(11) NULL COMMENT '二维码来源',
   `handler` varchar(256) NULL COMMENT '处理人UserID',
+  `created_date` DATE NOT NULL COMMENT '创建日期，本地时间',
   `created_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP COMMENT '创建时间',
   `updated_at` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP COMMENT '修改时间',
   PRIMARY KEY (`id`),
   INDEX `idx_order_status` (`status`),
   INDEX `idx_order_source` (`source`),
   INDEX `idx_order_handler` (`handler`),
-  INDEX `idx_order_created_at` (`created_at`)
+  INDEX `idx_order_created_date` (`created_date`)
 ) ENGINE InnoDB COMMENT '订单表';
 
 CREATE TABLE `biz` (
