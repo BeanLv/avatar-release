@@ -6,8 +6,8 @@ services:
     image: redis:3.2
     volumes:
       - ${HOME}/avatar/redis:/data
-    ports:
-      - "6379:6379"
+    networks:
+      - avatar.network
 
   mysql:
     container_name: avatar.sandbox.mysql
@@ -17,7 +17,9 @@ services:
       - ${HOME}/avatar/mysql:/var/lib/mysql
     environment:
       - MYSQL_USER=avatar
-    ports:
-      - "3306:3306"
+    networks:
+      - avatar.network
 
+networks:
+  avatar.network: 
 
